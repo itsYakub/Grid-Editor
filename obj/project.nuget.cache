@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "IyZDX1cZpoe/PoQvwHDdHcbisTp06SaBDW1gwJIBk7l5RVMwRTlm3EUdsIWT1udZfObkGncBtT3y4X95cXAvdw==",
+  "success": true,
+  "projectFilePath": "C:\\Repos\\csharp\\GridEditor\\GridEditor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\raylib-cs\\4.5.0\\raylib-cs.4.5.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
