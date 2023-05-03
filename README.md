@@ -8,14 +8,12 @@ Minimalistic pixel art editor, made with Raylib in C#.
 - The program utilizes a focused selection of key inputs for its workflow;
 - Users have the freedom to choose grid sizes within the range of 2x2 up to 128x128;
 
-# Instalation:
-1. Click the [<> Code] button;
-2. Click "Download ZIP" and save it in the directory of your choosing;
-3. Unzip the Package;
-4. Open the cmd terminal in the project's directory and type the command:
-``` terminal
-dotnet run
-```
+# Building and Running:
+Steps of getting Grid Editor up and running:
+1. Clone this repository;
+2. Save the files in the direction of your choosing;
+3. Unzip the project files and open the folder with `GridEditor.csproj` in the IDE or Text Editor;
+4. Run the project!
 
 # Usage:
 ```csharp
