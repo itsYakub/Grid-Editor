@@ -8,6 +8,15 @@ Minimalistic pixel art editor, made with Raylib in C#.
 - The program utilizes a focused selection of key inputs for its workflow;
 - Users have the freedom to choose grid sizes within the range of 2x2 up to 128x128;
 
+# Instalation:
+1. Go to "<> Code" tab;
+2. Click "Download ZIP" and save it in the directory of your choosing;
+3. Unzip the Package;
+4. Open the terminal in the project's directory and type the command
+``` terminal
+dotnet run
+```
+
 # Usage:
 ```csharp
 class Program
