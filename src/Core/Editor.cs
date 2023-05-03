@@ -7,10 +7,10 @@ namespace GridEditor.Core
 
     class Editor : Window
     {
-        private Grid[] grids;
+        private Grid grid;
         private Tool[] tools;
 
-        private uint resolution = 64;
+        private uint resolution = 16;
         private uint spacing = 0;
 
         private int currentGrid = 0;
@@ -23,24 +23,11 @@ namespace GridEditor.Core
 
         public Editor(uint Resolution) : base()
         {
+            uint minResolution = 2;
+            uint maxResolution = 128;
+
             this.resolution = Resolution;
-            this.resolution = Math.Clamp(this.resolution, 1, Size / 2);
-
-            EditorSetup();
-        }
-
-        public Editor(uint Resolution, uint Size, uint Framerate) : base(Size, Framerate)
-        {
-            this.resolution = Resolution;
-            this.resolution = Math.Clamp(this.resolution, 1, Size / 2);
-
-            EditorSetup();
-        }
-
-        public Editor(uint Resolution, uint Size, uint Framerate, Graphics.Color Background) : base(Size, Framerate, Background.ConvertToRaylibColor())
-        {
-            this.resolution = Resolution;
-            this.resolution = Math.Clamp(this.resolution, 1, Size / 2);
+            this.resolution = Math.Clamp(this.resolution, minResolution, maxResolution);
 
             EditorSetup();
         }
@@ -49,32 +36,28 @@ namespace GridEditor.Core
 
         private void OnEditorLoad()
         {
-            grids = new Grid[] { new Grid(resolution, spacing) };
+            grid = new Grid(resolution: resolution, spacing: spacing);
             tools = new Tool[] { new Pencil(), new Eraser(), new Brush() };
 
-            DebugCurrentGrid();
             DebugCurrentColor();
         }
 
         private void OnEditorUpdate()
         {
-            SetCurrentGrid();
             SetCurrentColor();
 
-            grids[currentGrid].SetCurrentTileColor(currentColor);
+            grid.SetCurrentTileColor(currentColor);
 
             foreach (var item in tools)
             {
-                item.OnToolUpdate(grids[currentGrid]);
+                item.OnToolUpdate(grid);
             }
         }
 
         private void OnEditorRender()
         {
-            for (int i = grids.Length - 1; i >= 0; i--)
-            {
-                grids[i].RenderGrid();
-            }
+            grid.RenderGridLines();
+            grid.RenderGridCells();
         }
 
         #endregion
@@ -91,25 +74,6 @@ namespace GridEditor.Core
 
             Init();
             Run();
-        }
-
-        private void SetCurrentGrid()
-        {
-            if (Raylib.IsKeyPressed(KeyboardKey.KEY_UP))
-            {
-                currentGrid++;
-                currentGrid = Math.Clamp(currentGrid, 0, grids.Length - 1);
-
-                DebugCurrentGrid();
-            }
-
-            else if (Raylib.IsKeyPressed(KeyboardKey.KEY_DOWN))
-            {
-                currentGrid--;
-                currentGrid = Math.Clamp(currentGrid, 0, grids.Length - 1);
-
-                DebugCurrentGrid();
-            }
         }
 
         private void SetCurrentColor()
@@ -134,11 +98,6 @@ namespace GridEditor.Core
         #endregion
 
         #region  Editor_Debuging
-
-        private void DebugCurrentGrid()
-        {
-            Debug.Log("Current layer: " + currentGrid);
-        }
 
         private void DebugCurrentColor()
         {

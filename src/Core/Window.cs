@@ -11,14 +11,11 @@ namespace GridEditor.Core
 
         public Color Background { get; set; } = new Color(25, 42, 86, 255);
 
-        public uint Size { get; set; } = 512;
-        public uint Framerate { get; set; } = 60;
-
+        protected const int Size = 768;
+        protected const int Framerate = 60;
         private const string Title = "Grid Editor";
 
         public Window() { }
-        public Window(uint Size, uint Framerate) { this.Size = Size; this.Framerate = Framerate; }
-        public Window(uint Size, uint Framerate, Color Background) { this.Size = Size; this.Framerate = Framerate; this.Background = Background; }
 
         public void Init()
         {

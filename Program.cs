@@ -6,7 +6,7 @@
     {
         static int Main(string[] args)
         {
-            var editor = new Editor(Resolution: 16, Size: 640, Framerate: 60);
+            var editor = new Editor(Resolution: 16);
 
             return 0;
         }

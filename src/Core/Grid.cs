@@ -22,16 +22,26 @@ namespace GridEditor.Core
             Debug.Log("Created a " + resolution + "x" + resolution + " grid!");
         }
 
-        public void RenderGrid()
+        public void RenderGridCells()
         {
             for (int i = 0; i < points.GetLength(0); i++)
             {
                 for (int j = 0; j < points.GetLength(1); j++)
                 {
                     points[i, j].Render();
+                }
+            }
+        }
 
+        public void RenderGridLines()
+        {
+            for (int i = 0; i < points.GetLength(0); i++)
+            {
+                for (int j = 0; j < points.GetLength(1); j++)
+                {
                     if (!points[i, j].Contains())
                         Raylib.DrawRectangleLines(points[i, j].x, points[i, j].y, Spacing, Spacing, new Color(245, 245, 245, 127));
+
                 }
             }
         }
