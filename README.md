@@ -1,5 +1,7 @@
 # Grid-Editor
-[![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com)
+![GitHub](https://img.shields.io/github/license/itsYakub/Grid-Editor?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/itsYakub/Grid-Editor?style=for-the-badge)
+
 
 Minimalistic pixel art editor, made with Raylib in C#.
 
